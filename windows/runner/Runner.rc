@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "matchop_1" "\0"
+            VALUE "FileDescription", "matchop" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "matchop_1" "\0"
+            VALUE "InternalName", "matchop" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "matchop_1.exe" "\0"
-            VALUE "ProductName", "matchop_1" "\0"
+            VALUE "OriginalFilename", "matchop.exe" "\0"
+            VALUE "ProductName", "matchop" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:matchop_1/models/userModel.dart';
+import 'package:matchop/models/userModel.dart';
 import 'package:http/http.dart' as http;
 
 class User {
@@ -10,7 +10,7 @@ class User {
   //Future permet de representer une reussite du traitement de la requête qui sera dispo a un moment précis dans le futur
 
   Future<String?> addUser(UserModel userModel) async {
-    var url = "http://192.168.43.43:8080/matchop/Users/addAccount";
+    var url = Uri.parse("http://192.168.43.43:8080/matchop/Users/addAccount");
     // print(userModel.login);
     // print(userModel.pwd);
     // print(userModel.email);

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:matchop_1/constants.dart';
-import 'package:matchop_1/screens/details/components/item_image.dart';
-import 'package:matchop_1/screens/details/components/order_button.dart';
-import 'package:matchop_1/screens/details/components/title_price_rating.dart';
+import 'package:matchop/constants.dart';
+import 'package:matchop/screens/details/components/item_image.dart';
+import 'package:matchop/screens/details/components/order_button.dart';
+import 'package:matchop/screens/details/components/title_price_rating.dart';
 
 
 class Body extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:matchop_1/screens/details/details-screen.dart';
-import 'package:matchop_1/screens/home/item_card.dart';
+import 'package:matchop/screens/details/details-screen.dart';
+import 'package:matchop/screens/home/item_card.dart';
 
 class ItemList extends StatelessWidget {
   const ItemList({

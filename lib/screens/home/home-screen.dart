@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:matchop_1/components/app-bar.dart';
-import 'package:matchop_1/components/bottom-nav-bar.dart';
-import 'package:matchop_1/components/body.dart';
+import 'package:matchop/components/app-bar.dart';
+import 'package:matchop/components/bottom-nav-bar.dart';
+import 'package:matchop/components/body.dart';
 
 class HomeScreen extends StatelessWidget {
   @override

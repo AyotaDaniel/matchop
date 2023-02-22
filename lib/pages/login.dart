@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:matchop_1/pallete.dart';
-import 'package:matchop_1/widgets/widgets.dart';
+import 'package:matchop/pallete.dart';
+import 'package:matchop/widgets/widgets.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
@@ -49,7 +49,7 @@ class LoginScreen extends StatelessWidget {
                   GestureDetector(
                     onTap: () => Navigator.pushNamed(context, 'ForgotPassword'),
                     child: Text(
-                      'Mot de passe oublié',
+                      'Mot de passe oublié ?',
                       style: styleText,
                     ),
                   ),
@@ -69,7 +69,7 @@ class LoginScreen extends StatelessWidget {
                         print('object button');
                       },
                       child: Text(
-                        'se connecter',
+                        'Se connecter',
                         style: kBodyText.copyWith(fontWeight: FontWeight.bold),
                       ),
                     ),
@@ -84,7 +84,7 @@ class LoginScreen extends StatelessWidget {
                     'CreateNewAccount'), // nous renvoi a la classe CreateNewAccount comme defini dans le route du materialApp
                 child: Container(
                   child: Text(
-                    'Créer un Nouveau Compte',
+                    'Créer un Compte',
                     style: kBodyText,
                   ),
                   decoration: BoxDecoration(

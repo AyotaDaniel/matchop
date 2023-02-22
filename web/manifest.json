@@ -1,6 +1,6 @@
 {
-    "name": "matchop_1",
-    "short_name": "matchop_1",
+    "name": "matchop",
+    "short_name": "matchop",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

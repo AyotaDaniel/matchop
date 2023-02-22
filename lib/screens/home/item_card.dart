@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:matchop_1/constants.dart';
+import 'package:matchop/constants.dart';
 
 class ItemCard extends StatelessWidget {
   final String? title, shopName, svgSrc;

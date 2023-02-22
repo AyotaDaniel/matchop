@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
-import 'package:matchop_1/constants.dart';
+import 'package:matchop/constants.dart';
 
 class DiscountCard extends StatelessWidget {
   const DiscountCard({

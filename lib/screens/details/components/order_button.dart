@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:matchop_1/constants.dart';
+import 'package:matchop/constants.dart';
 
 class OrderButton extends StatelessWidget {
   const OrderButton({

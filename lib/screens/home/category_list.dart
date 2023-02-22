@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:matchop_1/screens/home/category_item.dart';
+import 'package:matchop/screens/home/category_item.dart';
 
 class CategoryList extends StatelessWidget {
   const CategoryList({

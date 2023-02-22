@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:matchop_1/constants.dart';
+import 'package:matchop/constants.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:matchop_1/screens/details/components/body.dart';
+import 'package:matchop/screens/details/components/body.dart';
 
 class DetailsScreen extends StatelessWidget {
   @override

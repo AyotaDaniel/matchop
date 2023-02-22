@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:matchop_1/pages/screens.dart';
+import 'package:matchop/pages/screens.dart';
 // import 'package:matchop/screens/home/home-screen.dart';
 // import 'constants.dart';
 import 'pages/screens.dart';

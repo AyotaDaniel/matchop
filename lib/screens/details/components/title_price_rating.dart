@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:matchop_1/constants.dart';
+import 'package:matchop/constants.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 class TitlePriceRating extends StatelessWidget {

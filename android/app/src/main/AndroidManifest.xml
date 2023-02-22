@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.matchop_1">
+    package="com.example.matchop">
    <application
-        android:label="matchop_1"
+        android:label="matchop"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

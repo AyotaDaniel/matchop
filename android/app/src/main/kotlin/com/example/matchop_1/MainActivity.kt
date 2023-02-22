@@ -1,4 +1,4 @@
-package com.example.matchop_1
+package com.example.matchop
 
 import io.flutter.embedding.android.FlutterActivity
 

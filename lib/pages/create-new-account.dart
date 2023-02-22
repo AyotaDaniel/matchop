@@ -4,13 +4,13 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:matchop_1/controllers/User.dart';
-import 'package:matchop_1/models/userModel.dart';
-import 'package:matchop_1/pallete.dart';
-import 'package:matchop_1/widgets/background-image.dart';
+import 'package:matchop/controllers/User.dart';
+import 'package:matchop/models/userModel.dart';
+import 'package:matchop/pallete.dart';
+import 'package:matchop/widgets/background-image.dart';
 // import 'package:hermanFlutter/widgets/rounded-button.dart';
-import 'package:matchop_1/widgets/text-field-input.dart';
-import 'package:matchop_1/widgets/password-input.dart';
+import 'package:matchop/widgets/text-field-input.dart';
+import 'package:matchop/widgets/password-input.dart';
 import '../pallete.dart';
 
 class CreateNewAccount extends StatefulWidget {
