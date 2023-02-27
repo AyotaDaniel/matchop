@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:matchop/pages/authentication.dart';
 import 'package:matchop/pages/screens.dart';
 // import 'package:matchop/screens/home/home-screen.dart';
 // import 'constants.dart';
-import 'pages/screens.dart';
 
-
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -24,7 +26,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => LoginScreen(), // premier controller par defaut
+        '/': (context) => const Authentication(), // premier controller par defaut
         'ForgotPassword': (context) => ForgotPassword(), 
         'CreateNewAccount': (context) => CreateNewAccount(),
         'Home': (context) => Home(),

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "973591164142",
+    "project_id": "matchop-c1d4d",
+    "storage_bucket": "matchop-c1d4d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:973591164142:android:8c3f043e85976151322fff",
+        "android_client_info": {
+          "package_name": "com.example.matchop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "973591164142-dlb9afbb2i022fbpcfa5p5grkl0rjg65.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKZQOq40IFi_WuDpmHrxwe0Dsx1vNzROE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "973591164142-dlb9afbb2i022fbpcfa5p5grkl0rjg65.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

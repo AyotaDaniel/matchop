@@ -4,38 +4,41 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:matchop/controllers/User.dart';
-import 'package:matchop/models/userModel.dart';
+import 'package:matchop/net/flutterfire.dart';
+// import 'package:matchop/controllers/User.dart';
+// import 'package:matchop/models/userModel.dart';
 import 'package:matchop/pallete.dart';
 import 'package:matchop/widgets/background-image.dart';
 // import 'package:hermanFlutter/widgets/rounded-button.dart';
 import 'package:matchop/widgets/text-field-input.dart';
 import 'package:matchop/widgets/password-input.dart';
-import '../pallete.dart';
+// import '../pallete.dart';
 
 class CreateNewAccount extends StatefulWidget {
+  const CreateNewAccount({super.key});
+
   @override
   CreateNewAccountState createState() => CreateNewAccountState();
 }
 
 class CreateNewAccountState extends State<CreateNewAccount> {
-  TextEditingController loginCtrl = TextEditingController();
+  // TextEditingController loginCtrl = TextEditingController();
   TextEditingController emailCtrl = TextEditingController();
   TextEditingController pwdCtrl = TextEditingController();
-  TextEditingController nomCtrl = TextEditingController();
-  TextEditingController prenomCtrl = TextEditingController();
-  TextEditingController telCtrl = TextEditingController();
+  // TextEditingController nomCtrl = TextEditingController();
+  // TextEditingController prenomCtrl = TextEditingController();
+  // TextEditingController telCtrl = TextEditingController();
 
-  add(UserModel userModel) async {
-    await User().addUser(userModel);
-  }
+  // add(UserModel userModel) async {
+  //   await User().addUser(userModel);
+  // }
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Stack(
       children: [
-        BackgroundImage(image: 'assets/images/register_bg.png'),
+        const BackgroundImage(image: 'assets/images/register_bg.png'),
         Scaffold(
           backgroundColor: Colors.transparent,
           body: SingleChildScrollView(
@@ -76,7 +79,7 @@ class CreateNewAccountState extends State<CreateNewAccount> {
                           shape: BoxShape.circle,
                           border: Border.all(color: kWhite, width: 2),
                         ),
-                        child: Icon(
+                        child: const Icon(
                           FontAwesomeIcons.arrowUp,
                           color: kWhite,
                         ),
@@ -89,13 +92,13 @@ class CreateNewAccountState extends State<CreateNewAccount> {
                 ),
                 Column(
                   children: [
-                    TextInputField(
-                      controller: loginCtrl,
-                      icon: FontAwesomeIcons.user,
-                      hint: 'Login',
-                      inputType: TextInputType.name,
-                      inputAction: TextInputAction.next,
-                    ),
+                    // TextInputField(
+                    //   controller: loginCtrl,
+                    //   icon: FontAwesomeIcons.user,
+                    //   hint: 'Login',
+                    //   inputType: TextInputType.name,
+                    //   inputAction: TextInputAction.next,
+                    // ),
                     PasswordInput(
                       controller: pwdCtrl,
                       icon: FontAwesomeIcons.lock,
@@ -103,21 +106,21 @@ class CreateNewAccountState extends State<CreateNewAccount> {
                       inputAction: TextInputAction.next,
                     ),
 
-                    TextInputField(
-                      controller: nomCtrl,
-                      icon: FontAwesomeIcons.userAlt,
-                      hint: 'Nom',
-                      inputType: TextInputType.name,
-                      inputAction: TextInputAction.next,
-                    ),
+                    // TextInputField(
+                    //   controller: nomCtrl,
+                    //   icon: FontAwesomeIcons.userAlt,
+                    //   hint: 'Nom',
+                    //   inputType: TextInputType.name,
+                    //   inputAction: TextInputAction.next,
+                    // ),
 
-                    TextInputField(
-                      controller: prenomCtrl,
-                      icon: FontAwesomeIcons.userAlt,
-                      hint: 'prénom',
-                      inputType: TextInputType.name,
-                      inputAction: TextInputAction.next,
-                    ),
+                    // TextInputField(
+                    //   controller: prenomCtrl,
+                    //   icon: FontAwesomeIcons.userAlt,
+                    //   hint: 'prénom',
+                    //   inputType: TextInputType.name,
+                    //   inputAction: TextInputAction.next,
+                    // ),
 
                     TextInputField(
                       controller: emailCtrl,
@@ -126,20 +129,20 @@ class CreateNewAccountState extends State<CreateNewAccount> {
                       inputType: TextInputType.emailAddress,
                       inputAction: TextInputAction.next,
                     ),
-                    TextInputField(
-                      controller: telCtrl,
-                      icon: FontAwesomeIcons.phone,
-                      hint: 'Telephone',
-                      inputType: TextInputType.number,
-                      inputAction: TextInputAction.next,
-                    ),
+                    // TextInputField(
+                    //   controller: telCtrl,
+                    //   icon: FontAwesomeIcons.phone,
+                    //   hint: 'Telephone',
+                    //   inputType: TextInputType.number,
+                    //   inputAction: TextInputAction.next,
+                    // ),
                     
                     // PasswordInput(
                     //   icon: FontAwesomeIcons.lock,
                     //   hint: 'Confirmer',
                     //   inputAction: TextInputAction.done,
                     // ),
-                    SizedBox(
+                    const SizedBox(
                       height: 25,
                     ),
 
@@ -151,26 +154,30 @@ class CreateNewAccountState extends State<CreateNewAccount> {
                         color: kBlue,
                       ),
                       child: TextButton(
-                        onPressed: () {
-                          if (loginCtrl.text.isEmpty) {
+                        onPressed: () async {
+                          if (emailCtrl.text.isEmpty) {
                             Fluttertoast.showToast(
-                                msg: 'Le champ login est obligatoire',
+                                msg: 'Le champ email est obligatoire !',
                                 gravity: ToastGravity.BOTTOM_RIGHT,
                                 backgroundColor: Colors.red,
                                 textColor: Colors.white,
                                 toastLength: Toast.LENGTH_LONG,
                                 fontSize: 16.0);
                           } else {
-                            UserModel userModel = UserModel(
-                                login: loginCtrl.text,
-                                nom: nomCtrl.text,
-                                prenom: prenomCtrl.text,
-                                email: emailCtrl.text,
-                                tel: telCtrl.text,
-                                pwd: pwdCtrl.text
-                              );
+                            // UserModel userModel = UserModel(
+                            //     login: loginCtrl.text,
+                            //     nom: nomCtrl.text,
+                            //     prenom: prenomCtrl.text,
+                            //     email: emailCtrl.text,
+                            //     tel: telCtrl.text,
+                            //     pwd: pwdCtrl.text
+                            //   );
                             // print(userModel);
-                            add(userModel);
+                            // add(userModel);
+                            bool isSubscribed = await signUp(emailCtrl.text, pwdCtrl.text);
+                            if(!isSubscribed) return;
+
+                            Navigator.pushNamed(context, '/');
                           }
                         },
                         child: Text(
@@ -200,19 +207,19 @@ class CreateNewAccountState extends State<CreateNewAccount> {
                     //   ),
                     // ),
 
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
+                      children: const [
                         Text(
                           'Vous avez déjà un compte?',
                           style: kBodyText,
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     GestureDetector(
@@ -232,9 +239,6 @@ class CreateNewAccountState extends State<CreateNewAccount> {
               ],
             ),
           ),
-
-         
-
         )
       ],
     );
