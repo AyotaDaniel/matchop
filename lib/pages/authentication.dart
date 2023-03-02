@@ -88,7 +88,7 @@ class _AuthenticationState extends State<Authentication> {
 												} else {
 													setState(() {
 														isLoading = true;
-														print(isLoading);
+														const CircularProgressIndicator();
 													});
 
 													bool isAuthenticated = await signIn(email.text, password.text);

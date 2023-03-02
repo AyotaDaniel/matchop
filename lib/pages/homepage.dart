@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
 import 'package:latlong2/latlong.dart';
@@ -6,6 +7,9 @@ import 'package:geolocator/geolocator.dart';
 import 'package:matchop/components/app-bar.dart';
 import 'package:matchop/components/body.dart';
 import 'package:matchop/components/bottom-nav-bar.dart';
+import 'package:matchop/models/restaurant-registration.dart';
+import 'package:matchop/widgets/popup.dart';
+
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -24,15 +28,79 @@ class _HomeState extends State<Home> {
       appBar: homeAppBar(context),
       bottomNavigationBar: const BottomNavBar(),
       body: Body(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          _showMap();
-        },
-        backgroundColor: Colors.blue,
-        child: const Icon(Icons.location_on),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: Stack(
+        fit: StackFit.expand,
+        children: [
+          Positioned(
+            left: 30,
+            bottom: 20,
+            child: FloatingActionButton(
+              heroTag: 'Add',
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const RestaurantRegistration()),
+                );
+              },
+              backgroundColor: Colors.green,
+              child: const Icon(
+                Icons.add,
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 20,
+            right: 30,
+            child: FloatingActionButton(
+              heroTag: 'Show',
+              onPressed: () {
+                  _showMap();
+                },
+                backgroundColor: Colors.blue,
+                child: const Icon(Icons.location_on),
+              ),
+          ),
+        ],
       ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {
+      //     _showMap();
+      //   },
+      //   backgroundColor: Colors.blue,
+      //   child: const Icon(Icons.location_on),
+      // ),
     );
   }
+
+  late List<Restaurant> restaurants;
+
+  @override
+  void initState() {
+    super.initState();
+    getRestaurants().then((value) {
+      setState(() {
+        restaurants = value;
+      });
+    });
+  }
+
+  Future<List<Restaurant>> getRestaurants() async {
+    QuerySnapshot snapshot = await FirebaseFirestore.instance.collection('restaurants').get();
+    List<Restaurant> restaurants = [];
+    for (var document in snapshot.docs) {
+      Map<String, dynamic> data = document.data()  as Map<String, dynamic>;
+      Restaurant restaurant = Restaurant(
+        name: data['name'],
+        latitude: data['latitude'],
+        longitude: data['longitude'],
+        type: data['type'],
+      );
+      restaurants.add(restaurant);
+    }
+    return restaurants;
+  }
+
 
   Future<void> _showMap() async {
     bool serviceEnabled;
@@ -72,11 +140,27 @@ class _HomeState extends State<Home> {
           subdomains: const ['a', 'b', 'c'],
         ),
         CurrentLocationLayer(),
-        Center(
-            child: Text(
-              'Current Location: Lat-${_currentLocation!.latitude}, Long-${_currentLocation!.longitude}',
-              style: const TextStyle(fontSize: 25),
-            )
+        MarkerLayer(
+          markers: restaurants
+              .map((restaurant) => Marker(
+            width: 80.0,
+            height: 80.0,
+            point: LatLng(restaurant.latitude, restaurant.longitude),
+            builder: (ctx) => GestureDetector(
+              onTap: () {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return Popup(
+                      restaurantName: restaurant.name,
+                      restaurantType: restaurant.type,
+                    );
+                  },
+                );
+              },
+              child: const Icon(Icons.restaurant),
+            ),
+          )).toList(),
         ),
       ],
     );
@@ -94,4 +178,18 @@ class _HomeState extends State<Home> {
       ),
     );
   }
+}
+
+class Restaurant {
+  final String name;
+  final double latitude;
+  final double longitude;
+  final String type;
+
+  Restaurant({
+    required this.name,
+    required this.latitude,
+    required this.longitude,
+    required this.type,
+  });
 }

@@ -14,8 +14,8 @@ class Body extends StatelessWidget {
           SearchBox(
             onChanged: (value) {},
           ),
-          CategoryList(),
-          ItemList(),
+          const CategoryList(),
+          const ItemList(),
           // DiscountCard(),
         ],
       ),
